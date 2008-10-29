@@ -1,4 +1,4 @@
-#!env ruby
+#!/usr/bin/env ruby
 require 'html2textile'
 require 'open-uri'
 
