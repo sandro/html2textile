@@ -122,18 +122,18 @@ class HTMLToTextileParser < SGMLParser
     define_method "start_#{key}" do |attributes|
       make_quicktag_start_pair(key, value, attributes)
     end
-    
+
     define_method "end_#{key}" do
       make_quicktag_end_pair(value)
     end
   end
-  
+
   def start_ol(attrs)
     list_prefix.push '#'
   end
 
   def end_ol
-    list_prefix.pop(list_prefix.rindex('#'))
+    list_prefix.delete_at(list_prefix.rindex('#'))
   end
 
   def start_ul(attrs)
@@ -141,11 +141,11 @@ class HTMLToTextileParser < SGMLParser
   end
 
   def end_ul
-    list_prefix.pop(list_prefix.rindex('*'))
+    list_prefix.delete_at(list_prefix.rindex('*'))
   end
-  
+
   def start_li(attrs)
-    write("\r\n#{self.list_prefix} ")    
+    write("\r\n#{self.list_prefix} ")
     start_capture("li")
   end
 
