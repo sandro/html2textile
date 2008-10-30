@@ -243,6 +243,6 @@ class HTMLToTextileParser < SGMLParser
     '8221' => '" ' # TODO: FIX: HACK, whitespace dissapears somewhere, adding manually
    }
   def handle_charref(tag)
-    write(CHAR_MAP.include?(tag) ? [CHAR_MAP[tag]] : ['<notextile>&', tag, ';</notextile>'])
+    write(CHAR_MAP.include?(tag) ? [CHAR_MAP[tag]] : ['<notextile>&#', tag, ';</notextile>'])
   end
 end
