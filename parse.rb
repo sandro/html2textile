@@ -12,3 +12,4 @@ file = open(ARGV.first)
 parser.feed(file.read)
 output = (ARGV.size > 1) ? open(ARGV.last,'w') : STDOUT
 output.write parser.to_textile
+puts
